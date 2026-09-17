@@ -1,6 +1,13 @@
 # Written by hand for v0.1.0, in the shape GoReleaser generates. GoReleaser
 # rewrites this file on every stable release of ollieread/archdoc, from the
 # homebrew_casks section of its .goreleaser.yaml.
+#
+# The postflight_steps block replaces the deprecated `postflight` stanza that
+# GoReleaser 2.18 writes for hooks.post.install, which warned on every brew
+# command that touched the cask. archdoc's .goreleaser.yaml now emits the block
+# from custom_block instead, so the next release keeps it, though GoReleaser
+# places custom_block before `version` and `brew style` reports stanza order
+# on the generated file. The reasoning is recorded in .goreleaser.yaml.
 cask "archdoc" do
   version "0.1.0"
 
@@ -35,9 +42,9 @@ cask "archdoc" do
 
   binary "archdoc"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/archdoc"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/archdoc"]
     end
   end
 end
