@@ -6,25 +6,25 @@ cask "archdoc" do
     end
   end
 
-  version "0.5.0"
+  version "0.5.1"
 
   on_macos do
     on_arm do
-      sha256 "8bb3515cc7815a07b6966e8ec467163309f0cdf8991ca0ff7d7b45f6a3f184b0"
+      sha256 "21ac113d027427c6bf87ec54d9c401b693edaff2dff99b11449391e0639e2e5a"
       url "https://github.com/archdochq/archdoc/releases/download/v#{version}/archdoc_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "5c0f522396a2ae9a343a6d9c9467f0d62ef9c18500df1a3562f77a2cbfd33bd8"
+      sha256 "f1f268c2c64641f84bf1f0030ba74787da5f8c70fc85d5529dd1fe210aa47f90"
       url "https://github.com/archdochq/archdoc/releases/download/v#{version}/archdoc_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "cfce996f79912ef8e364ecf4a6f077616b9a9025ed399d8b816a6e65cf6ce8bc"
+      sha256 "ad378db0851cb5f0ec205717a4f020eacfc5f56cdb9f2d81c7ed5940dc002c27"
       url "https://github.com/archdochq/archdoc/releases/download/v#{version}/archdoc_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "ca85c157b8f0397007d3d0584dd2a147b1c303d70e8b2d492ab15353356b185d"
+      sha256 "36bc211261b3c65c9bc0164ae953fdcd23093d6d501d0a95400fe1fdd566e2d2"
       url "https://github.com/archdochq/archdoc/releases/download/v#{version}/archdoc_#{version}_linux_amd64.tar.gz"
     end
   end
